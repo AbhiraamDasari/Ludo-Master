@@ -12,7 +12,7 @@ var cars, car1, car2, car3, car4;
 var gameBoard,gbimg;
 var  diceimg,diceimg1,diceimg2,diceimg3;
 var diceimg4,diceimg5,diceimg6;
-var diceobj;
+var diceobj,dice;
 function preload(){
 gbimg =  loadImage("images/ludo img.jpg");
 diceimg = loadImage("images/dice main.png");
@@ -27,6 +27,7 @@ diceimg6 = loadImage("images/dice-6.png");
 function setup(){
   canvas = createCanvas(displayWidth - 20, displayHeight-30);
   database = firebase.database();
+  game = new Game();
   //var dice = createSprite(200,200,45,45);
   game.getState();
   game.start();
@@ -52,3 +53,10 @@ function draw(){
   drawSprites();
 }
 
+function keyPressed(){
+  if(keyCode===32){
+    diceobj.rotation();
+    console.log("Hello");
+
+    }
+}
